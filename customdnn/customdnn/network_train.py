@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Apr 13 19:26:10 2020
-
 @author: singhmnprt01@gmail.com
 
 customdnn Copyright (C) 2020 singhmnprt01@gmail.com
@@ -34,12 +32,11 @@ customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 
 import numpy as np
 import pandas as pd
-import math
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from datetime import datetime
 from sklearn.model_selection import train_test_split
-import sys
+
 """
 The entire code is desined using NumPy.
 
@@ -150,8 +147,8 @@ class TrainingDeepNetwork:
         shuffled_x = x_train[:,perm]
         shuffled_y = y_train[:,perm]
         
-        num_min_batches = math.floor(u/mini_batch_size)
-        
+        num_min_batches = np.floor(u/mini_batch_size)
+)
         for k in range(0,num_min_batches):
             mini_batch_x = shuffled_x[:,k*mini_batch_size:(k+1)*mini_batch_size]
             mini_batch_y = shuffled_y[:, k*mini_batch_size:(k+1)*mini_batch_size]
@@ -176,6 +173,7 @@ class TrainingDeepNetwork:
         
         for epoch in range(1,epoch_num+1):
             cost = 0
+            
 
             for num in range(0,num_batches):
 
@@ -186,7 +184,7 @@ class TrainingDeepNetwork:
                 A_all['A'+str(0)]=x_min
                 
                 temp = self.comp_cost(A_all,y_min,nw_size)
-                if (math.isnan(temp) == True or math.isinf(temp)==True or  np.isneginf(temp) ==True ):
+                if (np.isnan(temp) == True or np.isinf(temp)==True or  np.isneginf(temp) ==True ):
                     print("")
                 else : 
                     cost += temp      
@@ -331,7 +329,7 @@ class TrainingDeepNetwork:
                 Sdb_corrected["db" + str(i)] = Sdb["db"+ str(i)] / (1-np.power(beta2,t))
                 
         else:
-             sys.exit("No Gradient Descent Optmizer choosen !")
+             raise Exception ('User selected wrong gradient descent optimizer')
              
         
         return (dZ_all,dW_all,db_all,Vdw_corrected,Vdb_corrected,Sdw_corrected,Sdb_corrected)
@@ -381,7 +379,8 @@ class TrainingDeepNetwork:
         inp = input("If you didn't choose this netowrk size and wish to choose one \nPlease press Y and enter start over \n         #########  or  ######### \nPress N to continue entering the number of neurons for each layer \n")
         
         if (inp == "Y" or inp == "y"):
-          sys.exit("You exit the network as you wanted to choose different network arch !. Please start over ")  
+            raise Exception ('You exit the network as you wanted to choose different network arch !. Please start over ')
+          
        
         else:
             for i in range(0,network_size):

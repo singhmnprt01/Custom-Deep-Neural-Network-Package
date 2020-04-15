@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Apr 13 21:20:06 2020
-
 @author: singhmnprt01@gmail.com
 
 customdnn Copyright (C) 2020 singhmnprt01@gmail.com
-
 """
 
 import numpy as np
