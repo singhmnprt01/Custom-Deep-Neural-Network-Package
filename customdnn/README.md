@@ -4,7 +4,7 @@ With customdnn the user can build his own neural networ by simply passing few ne
 # Overview
 The idea behind building this package is to learn and implement the mathematics behind neural network without using any single modern API, but matrices(NumPy). It has following key features:-
 - It is simple to use as the user just needs to pass the x(feature dataset) and y(target variable) in a dataframe and rest will be taken care.
-- If the user wants change the default network architecture and build a customized NN, you can pass upto 8 parameters from learninng rate to gradient descent algorithms (GDM,RMSprop,Adam).
+- If the user wants change the default network architecture and build a customized NN, you can pass upto 7 parameters from learninng rate to gradient descent algorithms (GDM,RMSprop,Adam).
 - User can split the dataset by giving percentage of data to be test data, use it to predict and test his network's performance. (Area under the curve is current evaluation matrix)
 
 # Using it
@@ -14,7 +14,7 @@ Output will give suitable parameters (a discionary) and cost fucntion vs epoch g
 This parameter dictionary can be used to predict on test data and check model's performce as well (AUC value).
 
 # Limitations
-Currently the package is limited to binomial classification problems and doesn't support multinomial / image / regression problems. 
+Currently the package is limited to binomial classification problems, and doesn't support/solve  multinomial , image and regression problems. 
 
 # Website 
 Other details of the package and the paclage itself can be found at https://github.com/singhmnprt01/Custom-Deep-Neural-Network/tree/master/customdnn
