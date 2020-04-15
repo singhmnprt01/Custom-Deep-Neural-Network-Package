@@ -14,18 +14,17 @@ setup(name="customdnn",
       author="singhmnprt01@gmail.com",
       packages = ['customdnn'],
       install_requires =['pandas','numpy','matplotlib','sklearn','datetime','sys'],
-      long_description = "README"
+      long_description = "README",
       classifiers=[  
          'Development Status :: 3 - Alpha',
+         'Intended Audience :: Education',
+         'Topic :: Software Development :: Build Tools',
 
-        'Intended Audience :: Deep Learning Learners',
-        'Topic :: Software Development :: Build Tools',
-
-        'License :: GNU', 
+         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)', 
             
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
+         'Programming Language :: Python :: 3.6',
+         'Programming Language :: Python :: 3.7',
+         'Programming Language :: Python :: 3.8'
   ]     
       )
 

@@ -1,0 +1,10 @@
+README.md
+setup.py
+customdnn/__init__.py
+customdnn/network_predict.py
+customdnn/network_train.py
+customdnn.egg-info/PKG-INFO
+customdnn.egg-info/SOURCES.txt
+customdnn.egg-info/dependency_links.txt
+customdnn.egg-info/requires.txt
+customdnn.egg-info/top_level.txt
