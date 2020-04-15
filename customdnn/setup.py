@@ -1,6 +1,6 @@
 
 """
-@author: singhmnprt01
+@author: singhmnprt01@gmail.com
 """
 """
 customdnn Copyright (C) 2020 singhmnprt01@gmail.com
