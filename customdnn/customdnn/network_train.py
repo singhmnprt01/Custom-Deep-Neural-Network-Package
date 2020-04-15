@@ -88,6 +88,7 @@ class SplitData:
         y_train = y_train.T
         y_test  = y_test.T
         return x_train,x_test,y_train,y_test
+    
 
 class TrainingDeepNetwork: 
      
@@ -147,8 +148,8 @@ class TrainingDeepNetwork:
         shuffled_x = x_train[:,perm]
         shuffled_y = y_train[:,perm]
         
-        num_min_batches = np.floor(u/mini_batch_size)
-)
+        num_min_batches = int(np.floor(u/mini_batch_size))
+        
         for k in range(0,num_min_batches):
             mini_batch_x = shuffled_x[:,k*mini_batch_size:(k+1)*mini_batch_size]
             mini_batch_y = shuffled_y[:, k*mini_batch_size:(k+1)*mini_batch_size]

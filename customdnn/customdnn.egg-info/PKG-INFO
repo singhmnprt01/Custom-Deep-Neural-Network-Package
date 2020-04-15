@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: customdnn
+Version: 0.4
+Summary: A custom deep neural network package that gives the liberty to design a customized neural network (using NumPy only)
+Home-page: https://github.com/singhmnprt01/Custom-Deep-Neural-Network
+Author: singhmnprt01@gmail.com
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: README
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
