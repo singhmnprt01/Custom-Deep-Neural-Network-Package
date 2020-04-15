@@ -3,7 +3,7 @@
 @author: singhmnprt01
 """
 """
-<customdnn>  Copyright (C) <2020>  <singhmnprt01@gmail.com>
+customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 """
 from setuptools import setup
 
