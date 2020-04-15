@@ -2,7 +2,9 @@
 """
 Created on Mon April 13 10:57:42 2020
 
-@author: manpreetsi
+@author: singhmnprt01
+
+customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 """
 
 
