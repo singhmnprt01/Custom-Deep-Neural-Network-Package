@@ -3,7 +3,9 @@
 """
 Created on Mon Apr 13 19:26:10 2020
 
-@author: manpreetsi
+@author: singhmnprt01@gmail.com
+
+customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 """
 
 ### 4th End to End DNN Code using NumPy only ####
