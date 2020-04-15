@@ -15,7 +15,20 @@ setup(name="customdnn",
       author="Manpreet Singh",
       packages = ['customdnn'],
       install_requires =['pandas','numpy','matplotlib','sklearn','datetime','sys'],
-      long_description = open('README.md').read()
+      long_description = "README"
+      classifiers=[  # Optional
+         'Development Status :: 3 - Alpha',
+
+   
+        'Intended Audience :: Deep Learning Learners',
+        'Topic :: Software Development :: Build Tools',
+
+        # Pick your license as you wish
+        'License :: GNU', 
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+  ]     
       )
 
 
