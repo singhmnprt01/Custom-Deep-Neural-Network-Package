@@ -61,4 +61,13 @@ class PredictDeepNetwork:
          auc_nn = round(roc_auc_score(np.squeeze(y_true),np.squeeze(y_pred)),3)
          return auc_nn
      
+    def comp_cost_pred(self,y_true,y_pred):
+        
+        m = np.size(y_true)
+        
+        cost = - np.sum((y_true*np.log(y_pred)) + (1-y_true)*np.log(1-y_pred)) / m
+        np.squeeze(cost)
+            
+        return cost 
+     
         

@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: customdnn
-Version: 0.4
+Version: 0.7
 Summary: A custom deep neural network package that gives the liberty to design a customized neural network (using NumPy only)
 Home-page: https://github.com/singhmnprt01/Custom-Deep-Neural-Network
 Author: singhmnprt01@gmail.com

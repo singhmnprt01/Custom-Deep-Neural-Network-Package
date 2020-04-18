@@ -6,30 +6,6 @@
 customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 """
 
-### 4th End to End DNN Code using NumPy only ####
-
-### This code has additional features & Hyperparameters of DNN namely:-
-# Dropout
-# Normalizing/Scaling Inputs
-# Initializaing weights with better condition
-# Adam, gdm, rmsprop
-# Mini- Batch
-
-# Train-Test Split
-# Check model performance using AUC (Area under the curve)
-# Generalised the network - user input to create layers number and neurons per layer in the network
-# Load file from your storage (csv or excel) and run the DNN on it !
-# ---- Full fledge customized DNN class & Package
-# epoch numbers from user
-# adam, gdm, rmsprop choice as user input
-
-# check cost_array calculation incase of minibatches !!!
-# ---- Implement batch-norm
-# clip the final output value between .9999 to .0001
-# ---- early stopping !
-# default parameter initialization
-# change gradient form int to string input
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -38,37 +14,38 @@ from datetime import datetime
 from sklearn.model_selection import train_test_split
 
 """
-The entire code is desined using NumPy.
+The entire code is designed using NumPy.
 
 It takes user inputs as dataset (x and y) and other network designing inputs namely:-
-learning_rate ---- The rate of learning at which the gradient steps will be taken to minimize the cost
-beta1         ---- Beta constant for Gradient Descent Momemtum Optimization Algorithm
-beta2         ---- Beta constant for Root Mean Square prop Optmization Algorithm
-batch_size    ---- To create custmized mini-batches to amplify the processing and improve model accuracy/generalization/learning.
-network_size  ---- A custom variable to design the number of layer of your network. It is exclusive of input and output layer
-gradient      ---- Gradient Descent Optimization algorithm choosing field. You can input any of the following three :-
-    #### GDM        - Gradient Descent Momentum
-    #### RMSprop    - Room Mean Square Prop
-    #### Adam       - Adaptive Momentum Estimation
-epoch_num     ---- Number of epochs/iterations for the network. 
+> learning_rate ---- The rate of learning at which the gradient steps will be taken to minimise the cost
+> beta1         ---- Beta constant for Gradient Descent Momentum Optimisation Algorithm
+> beta2         ---- Beta constant for Root Mean Square prop Optimisation Algorithm
+> batch_size    ---- To create customised mini-batches to amplify the processing and improve model accuracy/generalisation/learning.
+> network_size  ---- A custom variable to design the number of layer of your network. It is exclusive of input and output layer
+> gradient      ---- Gradient Descent Optimisation algorithm choosing field. You can input any of the following three :-
+        * GDM        - Gradient Descent Momentum
+        * RMSprop    - Room Mean Square Prop
+        * Adam       - Adaptive Momentum Estimation
+> epoch_num     ---- Number of epochs/iterations for the network. 
 
 """
+
 class SplitData:
     """
-     This classhelps the user to split the data into train and test.
+     This class helps the user to split the data into train and test.
      User needs to input x, y and the Test percentage
      
     """
     def split_train_test(self,x,y,test_percentage):
         
         """
-        x - The feature dataset as a DATAFRAME
-        y - Target variable as a DATAFRAME
-        test_percentage - percetntage of total data to be used as test. Enter an integer value.
-        (if test_percentage is 20, it says that 20% data will test and 80% willl be train)
+        x - The feature dataset as a DATA FRAME
+        y - Target variable as a DATA FRAME
+        test_percentage - percentage of total data to be used as test. Enter an integer value.
+        (if test_percentage is 20, it says that 20% data will test and 80% will be train)
         
-        The fiunction returns 4 values (matrices):-
-        x_train,x_test,y_train,y_test
+        The function returns 4 values (matrices):-
+        x_train, x_test, y_train, y_test
         
         """
         
@@ -91,7 +68,15 @@ class SplitData:
     
 
 class TrainingDeepNetwork: 
+    """
+    The purpose if the class is to train the user defined neural network 
+    and return the updated set prameters(weight- w and bias- b)
+    
+    User needs to input x, y and certain set of hyperparamneters to create a custom Deep Neural Network
      
+    """ 
+    
+    
     def __init__(self):
         self.layer_nn=[]
     
@@ -102,7 +87,11 @@ class TrainingDeepNetwork:
         param={}
         size_nn = len(layer_nn)
         for i in range(1,size_nn):
-            param['W' + str(i)] = np.random.random((layer_nn[i],layer_nn[i-1])) * np.sqrt(2/layer_nn[i-1]) ## initializing appropriate weights 
+            """
+             #### xavier initialization of weights
+            
+            """
+            param['W' + str(i)] = np.random.random((layer_nn[i],layer_nn[i-1])) * np.sqrt(2/layer_nn[i-1]) 
             param['b' + str(i)] = np.zeros((layer_nn[i],1))
             
             ### Checker to check the dimensions of weights w & bias b ###
@@ -113,7 +102,6 @@ class TrainingDeepNetwork:
       
     def var_init(self,layer_nn):
         
- 
         cost_array = []
         
         param={}
@@ -121,24 +109,11 @@ class TrainingDeepNetwork:
             
         Z_all, A_all = {},{}
         dW_all,dZ_all,Vdw, Vdb,Sdw,Sdb = {},{},{},{},{},{}
+        
         return cost_array, param, Z_all, A_all, dZ_all, dW_all,Vdw,Vdb,Sdw,Sdb    
-      
-    def dnn_preprocessing(self,x,y,batch_size,layer_nn):
-        
-        layer_nn = self.layer_nn
-        mini_batches =[]
-
-        ## Variable intialization
-        cost_array, param, Z_all, A_all, dZ_all, dW_all,Vdw,Vdb,Sdw,Sdb  = self.var_init(layer_nn)
-        
-        ### Mini-Btches creation
-        mini_batches = self.create_mini_batch(x,y,batch_size)
-        
-        len(mini_batches)
-        
-        return mini_batches,cost_array, param, Z_all, A_all, dZ_all, dW_all ,Vdw,Vdb,Sdw,Sdb
- 
+     
     def create_mini_batch(self,x_train,y_train,batch_size):
+        
         ## create mini bacthes creation begins
         mini_batch_size = batch_size
         mini_batches = []
@@ -163,9 +138,36 @@ class TrainingDeepNetwork:
             mini_batch_y = shuffled_y[:, num_min_batches*mini_batch_size: ]
             mini_batch = (mini_batch_x, mini_batch_y)
             mini_batches.append(mini_batch)
-        return mini_batches
+             
+        return mini_batches    
+    
+    def dnn_preprocessing(self,x,y,batch_size,layer_nn):
         
-    def run_nn_epochs(self,Z_all, A_all,param,cost_array,dZ_all,dW_all,Vdw,Vdb,nw_size,layer_nn,learning_rate,mini_batches,beta1,beta2,epoch_num,gradient,data_size,batch_size):
+        """
+        It prepares neural network architecture as per the user requirements
+        and preprocesses the data ot make it network ready.
+        
+        """ 
+        
+        layer_nn = self.layer_nn
+        mini_batches =[]
+
+        ## Variable intialization
+        cost_array, param, Z_all, A_all, dZ_all, dW_all,Vdw,Vdb,Sdw,Sdb  = self.var_init(layer_nn)
+        
+        ### Mini-Btches creation
+        mini_batches = self.create_mini_batch(x,y,batch_size)
+        
+        len(mini_batches)
+        
+        return mini_batches,cost_array, param, Z_all, A_all, dZ_all, dW_all ,Vdw,Vdb,Sdw,Sdb
+            
+    def run_nn_epochs(self,Z_all, A_all,param,cost_array,dZ_all,dW_all,Vdw,Vdb,nw_size,layer_nn,learning_rate,mini_batches,beta1,beta2,epoch_num,gradient,data_size,batch_size,dropout_percentage):
+        
+        """
+        The function is used to train the network using forard and backward propagation
+        
+        """ 
         
         num_batches = len(mini_batches)
         alpha = learning_rate
@@ -181,7 +183,7 @@ class TrainingDeepNetwork:
                 x_min = mini_batches[num][0] 
                 y_min = mini_batches[num][1]     
                 
-                Z_all, A_all = self.forward_prop(param,x_min,nw_size)
+                Z_all, A_all = self.forward_prop(param,x_min,nw_size,dropout_percentage)
                 A_all['A'+str(0)]=x_min
                 
                 temp = self.comp_cost(A_all,y_min,nw_size)
@@ -197,7 +199,6 @@ class TrainingDeepNetwork:
             cost = cost/batch_size  
             cost_array.append(cost) 
             
-            ## Implement Grdient Clipping!!!!
             
             if(epoch % 100 == 0):
                 cost_epoch_array.append(cost)
@@ -217,7 +218,7 @@ class TrainingDeepNetwork:
         print(x)
         return x>0
     
-    def forward_prop(self, param,x_min,nw_size):
+    def forward_prop(self, param,x_min,nw_size,drop_perc):
         size_nn = nw_size
         A = x_min
 
@@ -233,8 +234,9 @@ class TrainingDeepNetwork:
             Z = np.dot(W,A_prev) + b 
             A = self.relu(Z)
         
-            ### Implemented Dropout with 70% probability
-            dropout_mask = np.random.rand(A.shape[0],A.shape[1]) < .7 ## 30% neurons will be switched off 
+            ### Implemented Dropout
+            drop_ratio = float(drop_perc/100)
+            dropout_mask = np.random.rand(A.shape[0],A.shape[1]) < drop_ratio  
             A *= dropout_mask
         
             Z_all['Z' + str(i)] = Z
@@ -247,9 +249,8 @@ class TrainingDeepNetwork:
         
         Z= np.dot(W,A_prev) + b
         A = self.sigmoid(Z)
-        
-        
-        ### clipping predictions between .0001 and .9999
+                
+        ### clipping predictions between .0001 and .9999 to avoid exploding of gradients
         A = np.where(A == 1.0, .9999,A)
         A = np.where(A == 0.0, .0001,A)
         
@@ -364,13 +365,32 @@ class TrainingDeepNetwork:
         
         ### Cost Graph #### 
         plt.plot(xs,cost_array)
-        plt.xlabel('iterations')
+        plt.xlabel('No. of Iterations')
         plt.ylabel('Cost Function')
         plt.show()
-        print("################################# Cost Graph for training dataset has been plotted ! ################################# ")
+        print("################ Cost Graph for training dataset has been plotted ! ################ \n")
         return cost_array
-
-    def train_network(self,x,y, learning_rate=.001, beta1=.9, beta2=.999,batch_size=32,network_size=3,gradient="Adam",epoch_num=1000 ):
+    
+    def cost_graph_per_hundered(self,cost_array):
+        
+        cost_array= np.array(cost_array)
+        cost_array = cost_array[np.isfinite(cost_array)]
+        xs = np.arange(1,len(cost_array)+1)
+        
+        ### Cost Graph #### 
+        plt.plot(xs,cost_array)
+        plt.xlabel('Per 100 Iterations')
+        plt.ylabel('Cost Function')
+        plt.show()
+        print("################ Cost Graph per 100 iterations for training dataset has been plotted ! ################ \n")
+        return cost_array
+    
+    def train_network(self,x,y, learning_rate=.001, beta1=.9, beta2=.999,batch_size=32,network_size=3,gradient="Adam",epoch_num=1000,dropout_percentage=70 ):
+        """
+        This is the main fucntion of the class which controls other paramount functions, process user input, 
+        display cost function graphs and returns trained  set of weight and bias parameters.
+        
+        """
 
         layer_nn = self.layer_nn
         ## feeding the input layer neurons !
@@ -399,13 +419,13 @@ class TrainingDeepNetwork:
             data_size = x.shape[1]
             
             print("Network Modeling started at ", datetime.now())
-            cost_epoch_array,cost_array,auc_array,Z_all,A_all,dZ_all,dW_all,Vdw,Vdb, param = self.run_nn_epochs(Z_all, A_all,param,cost_array,dZ_all,dW_all,Vdw,Vdb,nw_size,layer_nn,learning_rate,mini_batches,beta1,beta2,epoch_num,gradient,data_size,batch_size)
+            cost_epoch_array,cost_array,auc_array,Z_all,A_all,dZ_all,dW_all,Vdw,Vdb, param = self.run_nn_epochs(Z_all, A_all,param,cost_array,dZ_all,dW_all,Vdw,Vdb,nw_size,layer_nn,learning_rate,mini_batches,beta1,beta2,epoch_num,gradient,data_size,batch_size,dropout_percentage)
             
             ### Cost Graph Function per iteration/epoch
             cost_array = self.cost_graph(cost_array)
             
             ### Cost Graph Function per 100 iterations/epoch
-            cost_array = self.cost_graph(cost_epoch_array)
+            cost_epoch_array = self.cost_graph_per_hundered(cost_epoch_array)
                 
             print("\n Training of the network completed at ", datetime.now(), " \n Minimum cost function value in training is ",min(cost_array))
         
