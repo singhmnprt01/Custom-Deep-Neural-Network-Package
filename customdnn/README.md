@@ -20,12 +20,12 @@ This parameter dictionary can be used to predict on test data and check model's 
   - beta2 : Beta constant for Root Mean Square prop Optimisation Algorithm
   - Mini Batch Size : To create customised mini-batches to amplify the processing and improve model accuracy/learning.
   - Network Size : A custom variable to design the number of layer of your network. It is exclusive of input and output layer
-  - Gradient : Gradient Descent Optimisation algorithm choosing field. You can input any of the following three :-
+  - Gradient : Gradient Descent Optimisation algorithm selection field. The user can input any of the following three :-
         * GDM               - Gradient Descent Momentum
         * RMSprop           - Room Mean Square Prop
         * Adam              - Adaptive Momentum Estimation
   - Number of Epochs : Number of epochs/iterations for the network. 
-  - Dropout size : To fuse some %age of neurons
+  - Dropout size : To fuse some percentage of neurons
   - Neurons per layer 
 
   Other features to make customdnn more robust and vivid :-
