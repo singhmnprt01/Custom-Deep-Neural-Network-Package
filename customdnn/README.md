@@ -3,7 +3,7 @@ With customdnn the user can build his own neural networ by simply passing few ne
 
 # Overview
 The idea behind building this package is to learn and implement the mathematics behind neural network without using any single modern API, but matrices(NumPy). It has following key features:-
-- It is simple to use as the user just needs to pass the x(feature dataset) and y(target variable) in a dataframe and rest will be taken care.
+- It is quite convenient to use the package as the user just needs to pass the Xs(feature dataset) and Y(target variable) in a dataframe and rest will be taken care.
 - If the user wants change the default network architecture and build a customized NN, you can pass upto 9 parameters from learninng rate to gradient descent algorithms (GDM,RMSprop,Adam).
 - User can split the dataset by giving percentage of data to be test data, use it to predict and test his network's performance. (Area under the curve is current evaluation matrix)
 
@@ -15,20 +15,20 @@ This parameter dictionary can be used to predict on test data and check model's 
 
 # Features of customdnn :-
   Set of user defined/choosen hyperparameters to make a custom DNN:-
-  - Learning Rate     ---- The rate of learning at which the gradient steps will be taken to minimise the cost
-  - beta1             ---- Beta constant for Gradient Descent Momentum Optimisation Algorithm
-  - beta2             ---- Beta constant for Root Mean Square prop Optimisation Algorithm
-  - Mini Batch Size   ---- To create customised mini-batches to amplify the processing and improve model accuracy/generalisation/learning.
-  - Network Size      ---- A custom variable to design the number of layer of your network. It is exclusive of input and output layer
-  - Gradient          ---- Gradient Descent Optimisation algorithm choosing field. You can input any of the following three :-
+  - Learning Rate : The rate of learning at which the gradient steps will be taken to minimise the cost
+  - beta1 : Beta constant for Gradient Descent Momentum Optimisation Algorithm
+  - beta2 : Beta constant for Root Mean Square prop Optimisation Algorithm
+  - Mini Batch Size : To create customised mini-batches to amplify the processing and improve model accuracy/learning.
+  - Network Size : A custom variable to design the number of layer of your network. It is exclusive of input and output layer
+  - Gradient : Gradient Descent Optimisation algorithm choosing field. You can input any of the following three :-
         * GDM               - Gradient Descent Momentum
         * RMSprop           - Room Mean Square Prop
         * Adam              - Adaptive Momentum Estimation
-  - Number of Epochs  ---- Number of epochs/iterations for the network. 
-  - Dropout size      ---- To fuse some %age of neurons
+  - Number of Epochs : Number of epochs/iterations for the network. 
+  - Dropout size : To fuse some %age of neurons
   - Neurons per layer 
 
-  Other features to DNN more robust and vivid :-
+  Other features to make customdnn more robust and vivid :-
   - Normalizing/Scaling Inputs
   - xavier initialization of weights (fixed)
   - Model Evaluation using AUC (Area under the curve)
