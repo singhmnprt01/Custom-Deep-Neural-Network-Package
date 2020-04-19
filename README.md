@@ -3,4 +3,4 @@ A custom deep neural network package that gives the liberty to design your deep 
 
 More detail are in "customdnn" folder - package files
 
-Attached customdnn_running is the notebook on how to use customdnn package
+Attached "customdnn_running" is the notebook on how to use customdnn package
