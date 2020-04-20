@@ -52,6 +52,10 @@ class PredictDeepNetwork:
     
         A = d.sigmoid(Z)
         
+        ### clipping predictions between .0001 and .9999 to avoid nan/inf/-inf in cost computation
+        A = np.where(A == 1.0, .9999,A)
+        A = np.where(A == 0.0, .0001,A)
+        
         Z_all['Z' + str(size_nn-1)] = Z
         A_all['A'+str(size_nn-1)] = A
         

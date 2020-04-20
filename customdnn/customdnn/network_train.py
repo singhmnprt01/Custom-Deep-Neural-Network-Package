@@ -210,7 +210,8 @@ class TrainingDeepNetwork:
   
     def sigmoid(self,x):
         
-        sig= 1/(1+ np.exp(- x))
+        sig = np.where(x >= 0,1 / (1 + np.exp(-x)), np.exp(x) / (1 + np.exp(x)))
+        
         
         return sig  
     
@@ -389,6 +390,19 @@ class TrainingDeepNetwork:
         """
         This is the main fucntion of the class which controls other paramount functions, process user input, 
         display cost function graphs and returns trained  set of weight and bias parameters.
+        
+
+        It takes user inputs as dataset (x and y) and other network designing inputs namely:-
+        > learning_rate ---- The rate of learning at which the gradient steps will be taken to minimise the cost
+        > beta1         ---- Beta constant for Gradient Descent Momentum Optimisation Algorithm
+        > beta2         ---- Beta constant for Root Mean Square prop Optimisation Algorithm
+        > batch_size    ---- To create customised mini-batches to amplify the processing and improve model accuracy/generalisation/learning.
+        > network_size  ---- A custom variable to design the number of layer of your network. It is exclusive of input and output layer
+        > gradient      ---- Gradient Descent Optimisation algorithm choosing field. You can input any of the following three :-
+              * GDM        - Gradient Descent Momentum
+              * RMSprop    - Room Mean Square Prop
+              * Adam       - Adaptive Momentum Estimation
+        > epoch_num     ---- Number of epochs/iterations for the network. 
         
         """
 
