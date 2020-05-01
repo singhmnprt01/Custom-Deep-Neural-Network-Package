@@ -1,5 +1,5 @@
 # Authors: Manpreet Singh <singhmnprt01@gmail.com>
-# customdnn Copyright (C) 2020 singhmnprt01@gmail.com  
+# customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 # License: GNU GENERAL PUBLIC LICENSE
 
 

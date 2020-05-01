@@ -1,5 +1,5 @@
 # Authors: Manpreet Singh <singhmnprt01@gmail.com>
-# customdnn Copyright (C) 2020 singhmnprt01@gmail.com  
+# customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 # License: GNU GENERAL PUBLIC LICENSE
 
 import numpy as np
@@ -12,7 +12,6 @@ import sys
 import warnings
 
 
-
 class SplitData:
     """
      This class helps the user to split the data into train and test.
@@ -20,16 +19,16 @@ class SplitData:
 
     """
 
-    def split_train_test(self,x, y, test_percentage):
+    def split_train_test(self, x, y, test_percentage):
         """
          Parameters
         ----------
         x : dataframe
             Input feature set
-            
+
         y : dataframe(0,1)
             Target variable
-            
+
         test_percentage: int 
             Percentage of total data to be used as test
         """
@@ -160,7 +159,7 @@ class TrainingDeepNetwork:
                     layer_nn, A_all, y_min, param, Z_all, beta1, beta2, gradient)
 
                 param = self.__param_update(dW_all, db_all, Vdw_corrected, Vdb_corrected,
-                                          Sdw_corrected, Sdb_corrected, param, alpha, nw_size, gradient)
+                                            Sdw_corrected, Sdb_corrected, param, alpha, nw_size, gradient)
 
             cost = cost/batch_size
             cost_array.append(cost)
@@ -384,39 +383,39 @@ class TrainingDeepNetwork:
         """
         This is the main fucntion of the class which controls other paramount functions, process user input, 
         display cost function graphs and returns trained  set of weight and bias parameters.
-        
+
         Parameters
         ----------
         x : numpy array
             Input feature set
-            
+
         y : numpy array
             Target variable
-            
+
         learning_rate : float, default = .001
             The rate of learning at which the gradient steps will be taken to minimise the cost
-            
+
         beta1 : float, default = .9
             Beta constant for Gradient Descent Momentum Optimisation Algorithm
-            
+
         beta2 : float, default = .999
             Beta constant for Root Mean Square prop Optimisation Algorithm
-            
+
         batch_size : int, default = 32
             To create customised mini-batches to amplify the processing and improve model accuracy/generalisation/learning.
-            
+
         network_size : int, default = 3
             A custom variable to design the number of layer of your network. It is exclusive of input and output layer
-            
+
         gradient : string, default = "Adam"      
             Gradient Descent Optimisation algorithm choosing field. You can input any of the following three optimizers :-
                   GDM : Gradient Descent Momentum
                   RMSprop : Room Mean Square Prop
                   Adam : Adaptive Momentum Estimation
-                  
+
         epoch_num : int, default = 1000
             Number of epochs/iterations for the network. 
-          
+
         dropout_percentage : int, default = 70
             Percent of neurons to be fused.
         """
