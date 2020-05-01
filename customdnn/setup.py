@@ -7,7 +7,7 @@ customdnn Copyright (C) 2020 singhmnprt01@gmail.com
 from setuptools import setup
 
 setup(name="customdnn",
-      version = "1.0.3",
+      version = "1.0.4",
       description ="A custom deep neural network package that gives the liberty to design a customized neural network (using NumPy only)",
       url="https://github.com/singhmnprt01/Custom-Deep-Neural-Network",
       author="singhmnprt01@gmail.com",

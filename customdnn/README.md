@@ -38,6 +38,10 @@ This parameter dictionary can be used to predict on test data and check model's 
 # Limitations
 Currently the package is limited to binomial classification problems, and doesn't support/solve  multinomial , image and regression problems. 
 
+# Upcoming Features
+Batch-Norm
+Early Stopping
+
 # Website 
 Other details of the package and the package itself can be found at https://github.com/singhmnprt01/Custom-Deep-Neural-Network/tree/master/customdnn
 
@@ -45,7 +49,7 @@ Other details of the package and the package itself can be found at https://gith
 The current default output activation function is sigmoid and inner layers' is ReLU.
 
 # References & credits
-I got the inspiration from Andre NG's deeplearning.ai certification. It inspired me to build my own custom deep neural network library.
+I got the inspiration from Andre NG's deeplearning.ai course & my mentor - Kiran R (Sr. Director AA&DS CoE,VMware). They inspired me to build my own custom deep neural network library.
 
 # License
 GNU GENERAL PUBLIC LICENSE

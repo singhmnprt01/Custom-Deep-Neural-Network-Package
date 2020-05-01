@@ -427,9 +427,9 @@ class TrainingDeepNetwork:
 
         print("You have choosen the default network having  ",
               network_size+1, " layers with ", network_size, " hidden layers.\n")
-        inp = input("If you didn't choose this netowrk size and wish to choose one \nPlease press Y and enter start over \n         #########  or  ######### \nPress N to continue entering the number of neurons for each layer \n")
+        inp = input("If you didn't choose this netowrk size and wish to choose one \nPlease press N to enter start over \n         #########  or  ######### \nPress Y to continue entering the number of neurons for each layer \n")
 
-        if (inp == "Y" or inp == "y"):
+        if (inp == "N" or inp == "n"):
             raise Exception(
                 'You exit the network as you wanted to choose different network arch !. Please start over ')
 
