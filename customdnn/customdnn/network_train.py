@@ -424,9 +424,15 @@ class TrainingDeepNetwork:
         # feeding the input layer neurons !
         layer_nn.append(int(x.shape[0]))
 
-        print("You have choosen the default network having  ",
-              network_size+1, " layers with ", network_size, " hidden layers.\n")
-        inp = input("If you didn't choose this netowrk size and wish to choose one \nPlease press N to enter start over \n         #########  or  ######### \nPress Y to continue entering the number of neurons for each layer \n")
+        if (int(network_size) == 3):
+            print("You have choosen the default network having  ",
+                  network_size+1, " layers with ", network_size, " hidden layers.\n")
+
+        else:
+            print("You have designed the network having  ",
+                  network_size+1, " layers with ", network_size, " hidden layers.\n")
+
+        inp = input("If you wish to update the network design, then press N to start over \n         #########  or  ######### \nPress Y to continue entering the number of neurons for each layer \n")
 
         if (inp == "N" or inp == "n"):
             raise Exception(
