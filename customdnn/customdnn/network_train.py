@@ -54,9 +54,9 @@ class SplitData:
 class TrainingDeepNetwork:
     """
     The purpose if the class is to train the user defined neural network 
-    and return the updated set prameters(weight- w and bias- b)
+    and return the updated set parameters(weight- w and bias- b)
 
-    User needs to input x, y and certain set of hyperparamneters to create a custom Deep Neural Network
+    User needs to input x, y and certain set of hyperparameters to create a custom Deep Neural Network
 
     """
 
@@ -96,7 +96,7 @@ class TrainingDeepNetwork:
         return mini_batches
 
     def __dnn_preprocessing(self, x, y, batch_size, layer_nn):
-        """ It prepares the neural network architecture as per the user requirements and preprocesses the data to make it network ready. """
+        """ It prepares the neural network architecture as per the user requirements and pre-processes the data to make it network ready. """
 
         mini_batches = []
         cost_array = []
@@ -381,7 +381,7 @@ class TrainingDeepNetwork:
 
     def train_network(self, x, y, learning_rate=.001, beta1=.9, beta2=.999, batch_size=32, network_size=3, gradient="Adam", epoch_num=1000, dropout_percentage=70):
         """
-        This is the main fucntion of the class which controls other paramount functions, process user input, 
+        This is the main function of the class which controls other paramount functions, process user input, 
         display cost function graphs and returns trained  set of weight and bias parameters.
 
         Parameters

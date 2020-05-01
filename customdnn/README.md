@@ -4,7 +4,7 @@ With customdnn the user can build his own neural network by simply passing few r
 # Overview
 The idea behind building this package is to learn and implement the mathematics behind neural network without using any single modern API, but matrices(NumPy) only. Below is the overview of the package:- 
 - It is quite convenient to use the package as the user just needs to pass the Xs(feature dataset) and Y(target variable) in a dataframe and rest will be taken care.
-- If the user wants change the default network architecture and build a customized NN, you can pass up to 9 parameters from learning rate to gradient descent algorithms (GDM,RMSprop,Adam).
+- If the user wants change the default network architecture and build a customized NN, you can pass up to 9 parameters from learning rate to gradient descent algorithms (GDM, RMSprop, Adam).
 - User can split the dataset by giving percentage of data to be test data, use it to predict and test his network's performance. (Area under the curve is current evaluation matrix)
 
 # Using it
@@ -49,7 +49,7 @@ Other details of the package and the package itself can be found at https://gith
 The current default output activation function is sigmoid and inner layers' is ReLU.
 
 # References & credits
-I got the inspiration from Andre NG's deeplearning.ai course & my mentor - Kiran R (Sr. Director AA&DS CoE,VMware). They inspired me to build my own custom deep neural network library.
+I got the inspiration from Andre NG's deeplearning.ai course & my mentor - Kiran R (Sr. Director AA & DS CoE, VMware). They inspired me to build my own custom deep neural network library.
 
 # License
 GNU GENERAL PUBLIC LICENSE
