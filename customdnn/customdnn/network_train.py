@@ -387,7 +387,7 @@ class TrainingDeepNetwork:
         Parameters
         ----------
         x : numpy array
-            Input feature set
+            Input feature set data
 
         y : numpy array
             Target variable
@@ -418,6 +418,13 @@ class TrainingDeepNetwork:
 
         dropout_percentage : int, default = 70
             Percent of neurons to be fused.
+
+
+        Returns
+        -------
+        param : dict
+            parameter dictionary of trained network.
+
         """
 
         layer_nn = []
@@ -432,7 +439,7 @@ class TrainingDeepNetwork:
             print("You have designed the network having  ",
                   network_size+1, " layers with ", network_size, " hidden layers.\n")
 
-        inp = input("If you wish to update the network design, then press N to start over \n         #########  or  ######### \nPress Y to continue entering the number of neurons for each layer \n")
+        inp = input("If you wish to update the network design, then Enter N to start over \n         #########  or  ######### \nEnter any other key to continue entering the number of neurons for each layer \n")
 
         if (inp == "N" or inp == "n"):
             raise Exception(
