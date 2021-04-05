@@ -3,4 +3,4 @@
 
 #### Fore more detail : https://pypi.org/project/customdnn/
 
-#### Attached "customdnn_running" is the notebook on how to use customdnn package
+#### Attached "customdnn_running.ipynb" is the notebook on how to use customdnn package
